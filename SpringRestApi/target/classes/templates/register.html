@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	
+<h2 th:text="${student.studentId ==0 ? 'Add Student' : 'Edit Student'}"></h2>
+
+<form th:action="@{/register}" th:object="${student}" method="post">
+	
+	
+	<input type="hidden" th:field="*{studentId}" />
+
+   <!-- Student ID: <input type="number" name="studentId"><br><br> -->
+    Name: <input type="text" name="name"><br><br>
+    Course: <input type="text" name="course"><br><br>
+    Email: <input type="email" name="email"><br><br>
+    Marks: <input type="number" name="marks"><br><br>
+
+	<button type="submit"
+	      th:text="${student.studentId == 0 ? 'Add Student' : 'Update Student'}">
+	  </button>
+</form>
+
+<a href="/">Home</a>
+
+</body>
+</html>
