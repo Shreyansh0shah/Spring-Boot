@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>Books</h2>
+
+<form action="/search" method="get">
+    Book ID: <input type="number" name="bookId"/>
+    <button type="submit">Search</button>
+</form>
+
+<table border="1">
+<tr>
+    <th>ID</th><th>Name</th><th>Author</th><th>Price</th>
+</tr>
+<tr th:each="b : ${books}">
+    <td th:text="${b.bookId}"></td>
+    <td th:text="${b.bookName}"></td>
+    <td th:text="${b.author}"></td>
+    <td th:text="${b.price}"></td>
+</tr>
+</table>
+
+<a href="/">Add New Book</a>
+</body>
+</html>
